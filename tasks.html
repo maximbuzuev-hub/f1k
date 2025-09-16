@@ -7,8 +7,28 @@
   <style>
     :root{--pink:#ff4081;--pink-dark:#ff1c63}
     *{box-sizing:border-box}
-    body{margin:0;font-family:"Segoe UI",Arial,sans-serif;color:#fff;background:radial-gradient(circle at top left,#0f0c29,#302b63,#24243e);min-height:100vh;background-size:400% 400%;animation:bgmove 15s ease infinite}
-    @keyframes bgmove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url("fon.jpg"); /* картинка фона */
+  background-size: cover;           /* растягивает на весь экран */
+  background-position: center;      /* выравнивание по центру */
+  background-attachment: fixed;     /* фикс при скролле */
+  color: white;
+}
+
+/* затемнение поверх фона, чтобы текст был читаемым */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* прозрачный чёрный слой */
+  z-index: -1; /* чтобы не перекрывать контент */
+}
+
     header{position:fixed;top:0;left:0;right:0;backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(0,0,0,0.45),rgba(0,0,0,0.25));border-bottom:1px solid rgba(255,255,255,0.04);z-index:1000}
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
     nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
