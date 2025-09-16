@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Компьютерная графика — Главная</title>
+  <style>
+    /* === Стиль (вариант 2: современный, неоновые акценты) === */
+    :root {
+      --pink: #ff4081;
+      --pink-dark: #ff1c63;
+      --card-bg: rgba(255,255,255,0.04);
+      --glass: rgba(0,0,0,0.35);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Segoe UI", Arial, sans-serif;
+      color:#fff;
+      background: radial-gradient(circle at top left,#0f0c29,#302b63,#24243e);
+      min-height:100vh;
+      background-size:400% 400%;
+      animation:bgmove 15s ease infinite;
+      -webkit-font-smoothing:antialiased;
+    }
+    @keyframes bgmove{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    /* header / nav fixed */
+    header{
+      position:fixed;
+      top:0; left:0; right:0;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25));
+      border-bottom:1px solid rgba(255,255,255,0.04);
+      z-index:1000;
+    }
+    .container{max-width:1200px;margin:0 auto;padding:0 20px;}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
+    .logo{font-size:20px;font-weight:700;color:var(--pink)}
+    nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;align-items:center}
+    nav a{color:inherit;text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--pink)}
+
+    /* hero */
+    .hero{height:86vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 20px;}
+    .hero-inner{max-width:900px;}
+    .hero h1{font-size:48px;margin:0 0 16px;color:#fff;text-shadow:0 0 18px rgba(255,64,129,0.15)}
+    .hero p{color:#cfcfd1;margin:0 0 24px;font-size:18px}
+    .btn{display:inline-block;padding:12px 26px;border-radius:12px;background:var(--pink);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 6px 20px rgba(255,64,129,0.12);transition:all .22s}
+    .btn:hover{transform:translateY(-3px);background:var(--pink-dark);box-shadow:0 12px 30px rgba(255,64,129,0.22)}
+
+    /* sections */
+    section{padding:80px 20px;}
+    section h3{text-align:center;font-size:32px;margin:0 0 36px}
+    .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+
+    /* card */
+    .card{
+      background:var(--card-bg);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:12px;padding:20px;backdrop-filter:blur(6px);
+      transition:transform .25s,box-shadow .25s;
+      position:relative;overflow:hidden;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
+    .card h4{margin:0 0 10px;color:var(--pink)}
+    .card p{margin:0;color:#cfcfd1}
+
+    /* faq */
+    .faq-item{background:rgba(0,0,0,0.45);padding:14px;border-radius:10px;margin-bottom:12px;cursor:pointer;border:1px solid rgba(255,255,255,0.03)}
+    .faq-item h4{margin:0;color:var(--pink)}
+    .faq-item .answer{display:none;margin-top:10px;color:#bdbcc0}
+
+    /* footer */
+    footer{padding:18px 20px;text-align:center;color:#a9a9ac;border-top:1px solid rgba(255,255,255,0.03);background:transparent}
+
+    /* small helpers */
+    .muted{color:#bdbcc0;font-size:14px}
+    .section-inner{max-width:1100px;margin:0 auto}
+    /* spacing under fixed header */
+    main{padding-top:78px}
+    
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">CG Studio</div>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="topics.html" target="_blank">Темы</a></li>
+          <li><a href="tasks.html" target="_blank">Задания</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Компьютерная графика</h1>
+        <p>Обучение современным методам работы с графикой, 3D и анимацией — теория и практика.</p>
+        <a href="topics.html" target="_blank" class="btn">Перейти к темам</a>
+      </div>
+    </section>
+
+    <!-- TOPICS -->
+    <section id="topics">
+      <div class="section-inner">
+        <h3>Темы курса</h3>
+        <div class="grid">
+          <div class="card">
+            <h4>Основы графики</h4>
+            <p>Пиксели, векторная и растровая графика, форматы файлов.</p>
+          </div>
+          <div class="card">
+            <h4>3D моделирование</h4>
+            <p>Создание объектов и сцен, освещение, материалы.</p>
+          </div>
+          <div class="card">
+            <h4>Анимация</h4>
+            <p>Принципы движения, ключевые кадры, VFX.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TASKS -->
+    <section id="tasks">
+      <div class="section-inner">
+        <h3>Практические задания</h3>
+        <div class="grid">
+          <div class="card">
+            <h4>Задание 1</h4>
+            <p>Сделать логотип в векторной графике (Illustrator/Corel).</p>
+          </div>
+          <div class="card">
+            <h4>Задание 2</h4>
+            <p>Смоделировать 3D-куб и применить текстуры.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="section-inner">
+        <h3>Часто задаваемые вопросы</h3>
+        <div class="faq">
+          <div class="faq-item">
+            <h4>Что такое компьютерная графика?</h4>
+            <p class="answer">Это область информатики, связанная с созданием и обработкой изображений и анимации.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Нужен ли опыт для начала обучения?</h4>
+            <p class="answer">Нет, курс подходит для начинающих. Всё объясняется с нуля.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Какие программы будем изучать?</h4>
+            <p class="answer">Illustrator, Photoshop, Blender и другие.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Компьютерная графика. Все права защищены.
+  </footer>
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-item').forEach(item=>{
+      item.addEventListener('click', ()=> {
+        item.classList.toggle('active');
+        const ans = item.querySelector('.answer');
+        if (!ans) return;
+        if (item.classList.contains('active')) {
+          ans.style.display = 'block';
+        } else {
+          ans.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
