@@ -3,32 +3,52 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Разделы</title>
+  <title>Темы — CG Studio</title>
   <style>
-    /* тот же стиль, чтобы страницы были одинаковы */
+    .faq-item{background:rgba(0,0,0,0.45);padding:14px;border-radius:10px;margin-bottom:12px;cursor:pointer;border:1px solid rgba(255,255,255,0.03)}
+    .faq-item h4{margin:0;color:var(--pink)}
+    .faq-item .answer{display:none;margin-top:10px;color:#bdbcc0}
+
+    /* стили для текста в answer */
+    .answer h3, .answer h4 {
+      margin-top: 14px;
+      margin-bottom: 6px;
+      color: #80d8ff;
+      text-shadow: 0 0 10px rgba(255,64,129,0.15);
+    }
+    .answer p {
+      margin: 6px 0 10px;
+      color: #d0d0d3;
+      line-height: 1.6;
+    }
+    .answer ul, .answer ol {
+      margin: 6px 0 14px 20px;
+      color: #c9c9cc;
+      line-height: 1.6;
+    }
+
     :root{--pink:#ff4081;--pink-dark:#ff1c63}
     *{box-sizing:border-box}
     body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-image: url("fon.jpg"); /* картинка фона */
-  background-size: cover;           /* растягивает на весь экран */
-  background-position: center;      /* выравнивание по центру */
-  background-attachment: fixed;     /* фикс при скролле */
-  color: white;
-}
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url("fon.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
 
-/* затемнение поверх фона, чтобы текст был читаемым */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* прозрачный чёрный слой */
-  z-index: -1; /* чтобы не перекрывать контент */
-}
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
 
     header{position:fixed;top:0;left:0;right:0;backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(0,0,0,0.45),rgba(0,0,0,0.25));border-bottom:1px solid rgba(255,255,255,0.04);z-index:1000}
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
@@ -76,35 +96,44 @@ body::before {
   <main>
     <section>
       <div class="section-inner">
-        <h1>Разделы курса</h1>
+        <h1>Темы курса</h1>
+        
+        <div class="faq-item">
+  <h4>Тема 3.Верстка в CorelDraw </h4>
+  <div class="answer">
+    <a class="btn" href="3tema.docx" download>📄 Скачать задание</a>
+    </div>
+</div>
 
-        <div class="grid">
-          <div class="card">
-           <h4>Раздел 1 - Виды компьютерной графики </h4>
-            <p>Создавать визуальный дизайн элементов графического пользовательского интерфейса</p>
-            <a class="btn" href="razdel_1.html">➡ Открыть тему</a>
-          </div>
+          <!-- Тема 3 -->
 
-          <div class="card">
-            <h4>Раздел 2. Программа редактирования Adobe Photoshop </h4>
-            <p>Подготавливать графические материалы для включения в графический интерфейс.</p>
-            <!-- пример: переход на страницу темы -->
-            <a class="btn" href="razdel_2.html">➡ Открыть тему</a>
-          </div>
 
-          <div class="card">
-            <h4>Тема 3 — Анимация</h4>
-            <p>Ключевые кадры, кривые, принципы движения.</p>
-            <a class="btn" href="tema3.docx" download>📄 Скачать материал</a>
-          </div>
+
+
+          <a href="tasks.html" class="faq-item" style="display:block; text-decoration:none;">
+            <h4>Практическая №1</h4>
+          </a>
+          <a href="tasks.html" class="faq-item" style="display:block; text-decoration:none;">
+            <h4>Практическая №2</h4>
+          </a>
+
         </div>
-
         <div style="text-align:center">
           <a class="back" href="index.html">⬅ Назад на главную</a>
         </div>
-      </div>
     </section>
   </main>
+
+  <script>
+    document.querySelectorAll('.faq-item').forEach(item=>{
+      item.addEventListener('click', ()=> {
+        item.classList.toggle('active');
+        const ans = item.querySelector('.answer');
+        if (!ans) return;
+        ans.style.display = item.classList.contains('active') ? 'block' : 'none';
+      });
+    });
+  </script>
 
   <footer>© 2025 Компьютерная графика. Все права защищены.</footer>
 </body>

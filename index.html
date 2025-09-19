@@ -45,12 +45,12 @@ body::before {
       border-bottom:1px solid rgba(255,255,255,0.04);
       z-index:1000;
     }
-    .container{max-width:1200px;margin:0 auto;padding:0 20px;}
-    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
-    .logo{font-size:20px;font-weight:700;color:var(--pink)}
-    nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;align-items:center}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .logo{font-weight:700;color:var(--pink)}
     nav a{color:inherit;text-decoration:none;font-weight:600}
     nav a:hover{color:var(--pink)}
+    nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;align-items:center}
 
     /* hero */
     .hero{height:86vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 20px;}
@@ -98,11 +98,19 @@ body::before {
     <div class="container">
       <nav>
         <div class="logo">CG</div>
-        <ul>
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="topics.html" target="_blank">Темы</a></li>
-          <li><a href="tasks.html" target="_blank">Задания</a></li>
-        </ul>
+         <div>
+          <a href="index.html">Главная</a>
+          &nbsp;&nbsp;
+          <a href="topics.html">Разделы</a>
+          &nbsp;&nbsp;
+          <a href="tasks.html">Лабораторные работы</a>
+          &nbsp;&nbsp;
+          <a href="vopros.html">Вопросы</a>
+          &nbsp;&nbsp;
+          <a href="test.html">Тесты</a>
+          &nbsp;&nbsp;
+          <a href="video.html">Видео материалы</a>
+        </div>
       </nav>
     </div>
   </header>
@@ -113,18 +121,18 @@ body::before {
       <div class="hero-inner">
         <h1>Компьютерная графика</h1>
         <p>Обучение современным методам работы с графикой, 3D и анимацией — теория и практика.</p>
-        <a href="topics.html" target="_blank" class="btn">Перейти к темам</a>
+        <a href="topics.html"class="btn">Перейти к Разделам</a>
       </div>
     </section>
 
     <!-- TOPICS -->
     <section id="topics">
       <div class="section-inner">
-        <h3>Темы курса</h3>
+        <h3>Разделы курса</h3>
         <div class="grid">
           <div class="card">
-            <h4>Основы графики</h4>
-            <p>Пиксели, векторная и растровая графика, форматы файлов.</p>
+            <h4>Упаковка прикладных программ </h4>
+            <p>Устанавливать и настраивать прикладное программное обеспечение персональных компьютеров.</p>
           </div>
           <div class="card">
             <h4>3D моделирование</h4>
@@ -178,19 +186,16 @@ body::before {
   </footer>
 
   <script>
-    // FAQ accordion
-    document.querySelectorAll('.faq-item').forEach(item=>{
-      item.addEventListener('click', ()=> {
-        item.classList.toggle('active');
-        const ans = item.querySelector('.answer');
-        if (!ans) return;
-        if (item.classList.contains('active')) {
-          ans.style.display = 'block';
-        } else {
-          ans.style.display = 'none';
-        }
-      });
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('active');
+      const ans = item.querySelector('.answer');
+      if (!ans) return;
+      ans.style.display = item.classList.contains('active') ? 'block' : 'none';
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
